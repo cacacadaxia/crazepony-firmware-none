@@ -61,7 +61,7 @@ int main(void)
     LedInit();	                //IO初始化
 
     BT_PowerInit();               //蓝牙电源初始化完成，默认关闭
-    MotorInit();	                //马达初始化
+    MotorInit();	                //马达初始化（初始化应该有速度的把？）
     BatteryCheckInit();           //电池电压监测初始化
     IIC_Init();                   //IIC初始化
 
@@ -127,6 +127,7 @@ int main(void)
 
         //100Hz Loop
         //Crazepony默认使用100Hz的控制频率
+        /*与控制和导航系统相关*/
         if(loop100HzCnt>=10)
         {
             loop100HzCnt=0;
@@ -145,6 +146,7 @@ int main(void)
             MS5611_ThreadNew();		//FSM, take aboue 0.5ms some time
 
             //imu校准
+            /*校准的条件是什么？*/
             if(imuCaliFlag)
             {
                 if(IMU_Calibrate())
@@ -156,7 +158,7 @@ int main(void)
             }
 
             CtrlAttiRate();
-            CtrlMotor();
+            CtrlMotor();/*控制马达*/
 
             execTime[1]=micros()-startTime[1];
         }

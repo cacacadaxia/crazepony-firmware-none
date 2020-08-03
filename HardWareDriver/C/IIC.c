@@ -34,7 +34,7 @@ iic.c file
 *功　　能:		初始化I2C对应的接口引脚。
 *******************************************************************************/
 void IIC_Init(void)
-{			
+{			/*使用系统函数的比较多*/
 	GPIO_InitTypeDef GPIO_InitStructure;
  	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);			     
  	//配置PB6 PB7 为开漏输出  刷新频率为10Mhz

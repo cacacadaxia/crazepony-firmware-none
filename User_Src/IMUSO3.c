@@ -101,7 +101,7 @@ static void NonlinearSO3AHRSinit(float ax, float ay, float az, float mx, float m
 }
 
 //函数名：NonlinearSO3AHRSupdate()
-//描述：姿态解算融合，是Crazepony和核心算法
+//描述：姿态解算融合，是Crazepony的核心算法
 //使用的是Mahony互补滤波算法，没有使用Kalman滤波算法
 //改算法是直接参考pixhawk飞控的算法，可以在Github上看到出处
 //https://github.com/hsteinhaus/PX4Firmware/blob/master/src/modules/attitude_estimator_so3/attitude_estimator_so3_main.cpp
@@ -343,5 +343,6 @@ void IMUSO3Thread(void)
     imu.roll=euler[0] * 180.0f / M_PI_F;
     imu.pitch=euler[1] * 180.0f / M_PI_F;
     imu.yaw=euler[2] * 180.0f / M_PI_F;
+    /*问题是如果产生翻转的话，那么会带来问题的吧？欧拉角？因为俯仰角不可能到90度*/
 }
 

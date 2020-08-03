@@ -2,7 +2,7 @@
 #define _SYS_CONFIG_H
 //
 #include "stm32f10x.h"
-
+/*用作调试的参数*/
 #define YAW_CORRECT
 #define IMU_SW		//姿态解算使用软件解算，不再使用MPU6050的硬件解算单元DMP
 #define HIGH_FREQ_CTRL
